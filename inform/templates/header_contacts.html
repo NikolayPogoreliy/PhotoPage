@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="large-2 column left">
+        <p>{{ name }}:</p>
+    </div>
+    <div class="large-10 column">
+        <ul class="no-bullet">
+            {% for cont in head_conts %}
+            <li>{{ cont.contact }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>

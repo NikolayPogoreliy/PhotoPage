@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+{% block about_us %}
+
+        <div class="row columns">
+            <h2> {{ cont.title }}</h2>
+        </div>
+        <div class="row columns">
+            {% autoescape off %}{{ cont.text }}{% endautoescape %}
+        </div>
+
+{% endblock %}

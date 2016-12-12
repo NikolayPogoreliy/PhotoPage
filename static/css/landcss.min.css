@@ -1,0 +1,5 @@
+.bg_image_header{height:290px;background-image:url(../img/BG_HEADER.jpg?1604201622);background-position:center;background-size:cover}
+.bg_color_transparent,.bg_color_transparent ul{background-color:transparent}
+.f-color,.f-color a,.f-color a:visited{color:#ffae00}
+.f-color a:hover{color:#ec5840}
+.border_red{border:1px solid red;border-collapse:collapse}

@@ -1,0 +1,9 @@
+
+<div class="small reveal" id="modal-{{ material.id }}" data-reveal>
+    <h1>{{ material.title }}</h1>
+    {% autoescape off %} <p class="lead">{{ material.description }}</p> {% endautoescape %}
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+

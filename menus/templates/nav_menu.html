@@ -1,0 +1,44 @@
+{% load staticfiles %}
+{% load sidebar_menu %}
+
+{% block nav_menu %}
+            <div class="row " style="height: 20px">
+                <div  class="top-bar bg_color_transparent">
+                    <div  class="top-bar-left">
+                    <ul class="dropdown menu " data-dropdown-menu>
+                        <li ><a  href="{% url "home" %}"><i class="fi-list "> <span >Home</span></i></a></li>
+                        <li >
+                            <a href="{% url "services" %}"><i class="fi-list "> <span >Наши услуги</span></i></a>
+                            <ul class="menu nav-menu">
+                                {% show_sidebar_menu as items %}
+                                {% for item in items %}
+                                    <li><a href="{% url "category" item.slug %}">{{ item.name }}</a>
+                                    {% show_sidebar_submenu item.id as subitems %}
+                                    {% if subitems %}
+                                        <ul class="menu nav-menu">
+                                        {% for subitem in subitems %}
+                                            <li><a href="{% url "category" subitem.slug %}">{{ subitem.name }}</a>
+                                            {% show_sidebar_submenu subitem.id as subsubitems %}
+                                            {% if subsubitems %}
+                                                <ul class="menu nav-menu">
+                                                {% for subsubitem in subsubitems %}
+                                                    <li><a href="{% url "category" subsubitem.slug %}">{{ subsubitem.name }}</a></li>
+                                                {% endfor %}
+                                                </ul>
+                                            </li>
+                                            {% endif %}
+                                        {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li ><a  href="{% url "about_us" %}"><i class="fi-list "> <span >О нас</span></i></a></li>
+                        <li ><a  href="{% url "contacts" %}"><i class="fi-list "> <span >Контакты</span></i></a></li>
+
+                    </ul>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

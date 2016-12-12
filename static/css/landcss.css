@@ -1,0 +1,125 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19.04.2016, 14:42:13
+    Author     : admin
+*/
+
+
+main{
+    background: linear-gradient(to top, #e1e1e1, #f7f7f7), no-repeat;
+    background-size: contain;
+    padding-bottom: 1.5rem;
+    padding-top: 1rem;
+}
+.bg_image_header{
+    /*height: 290px;*/
+    background-image: url('../img/BG_HEADER.jpg');
+    background-repeat: no-repeat;
+    /*background-color: #cacaca;*/
+    background-size: 100% 100%;
+}
+
+.bg_image_footer{
+    background-color: #99c9c0;
+    background-size: contain;
+}
+
+.bg_color_transparent, .bg_color_transparent ul{
+    background-color: transparent;
+}
+
+.f-color, 
+.f-color a, 
+.f-color a:visited {
+    color: purple;
+}
+.f-color a:hover{
+    color: maroon;
+}
+
+.border_red{
+    border: 1px solid dimgrey;
+    border-collapse: collapse;
+}
+.padding-0{
+    padding: 0;
+}
+.services {
+    
+    align-content: center;
+    vertical-align: middle;
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+}
+
+.services a {
+    margin: 5%;
+    height: 21.88rem;
+    max-width: 40%;
+    /*background: linear-gradient(to bottom, #b9b9b9, #99c9c0);*/
+    background-size: 100% 100%;
+}
+.services .column {
+    margin: 5%;
+    /*height: 180px;*/
+    height: 21.88rem;
+    max-width: 40%;
+    /*background: linear-gradient(to bottom, #b9b9b9, #99c9c0);*/
+    background-size: 100% 100%;
+    align-content: center;
+    vertical-align: middle;
+    /*padding: 0;*/
+
+}
+
+.sidebar{
+    padding: 0;
+    margin-top: 0.85rem;
+}
+
+.sidebar_title{
+    background: linear-gradient(to bottom, #b9b9b9, #f7f7f7);
+    text-align: center;
+}
+.size-48 {
+    font-size: 48px;
+}
+.step {
+    display: inline-block;
+    line-height: 1;
+    width: 10%;
+}
+
+.nav-menu a {
+    background-color: #bfbfbf   ;
+    opacity: 0.85;
+}
+
+.custom-caption{
+    position: relative;
+    top: 292px;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 0;
+    color: #fefefe;
+    background-color: rgba(10, 10, 10, 0.5);
+}
+.link {
+    width: 100%; /* Ширина слоя */
+    height: 100%; /* Высота слоя */
+    padding: 0;
+
+ }
+
+.link a {
+    display: block;
+    height: 100%;
+    max-width:100% !important;
+    width:100% !important;
+    margin:0;
+}

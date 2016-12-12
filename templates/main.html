@@ -1,0 +1,100 @@
+{% load  staticfiles %}
+{% load head_contacts %}
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" type="text/css" href="{% static "static/css/foundation.css" %}"/>
+        <!-- Insert this within your head tag and after foundation.css -->
+        <link rel="stylesheet" type="text/css" href="{% static "static/css/foundation-icons.css" %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "static/css/slick.css"%}"/>
+        <!-- Add the new slick-theme.css if you want the default styling-->
+        <link rel="stylesheet" type="text/css" href="{% static "static/css/slick-theme.css"%}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "static/css/landcss.css" %}">
+        {% if meta_title %}
+            <title>{{ meta_title }}</title>
+        {% else %}
+            <title> Фотопечать, полиграфия, сувениры и тиражирование в Запорожье </title>
+        {% endif %}
+
+        {% if meta_key %}
+            <meta content="{{ meta_key }}" name="keywords">
+        {% else %}
+            <meta content="фотопечать, фотомагниты, ксерокопирование, распечатка, сувениры, акрил, винил, магниты, фоторамки, переплет, ламинирование, холст, открытки, поздравления, грамоты, календарь, фотокниги" name="keywords">
+        {% endif %}
+
+        {% if meta_desc %}
+            <meta content="{{ meta_desc }}" name="description">
+        {% else %}
+            <meta content="Все виды полиграфических услуг, фотопечать, ламинирование и распечатка, переплет, сувенирные магниты, поздравительные открытки, печать на чашках, печать на футболках, печать на холсте, сканирование и тиражирование в Запорожье" name="description">
+        {% endif %}
+
+        
+    </head>
+    <body>
+        {% include "header.html" %}
+
+            <main class="row">
+            <div class="large-offset-1 large-10 columns">
+                {# include "sidebar_menu.html" #}
+                {% block login %}{% endblock %}
+                {% block category_main %}{% endblock %}
+                {% block about_us %}{% endblock %}
+                {% block contacts %}{% endblock %}
+            </div>
+            </main>
+            
+
+        <footer class="row bg_image_footer">
+            <div class="row">
+                <div class="large-3 columns">
+                    <ul class="menu-centered horizontal no-bullet">
+                        <li class="menu-text"> Информация </li>
+                        <li><small><a href="{% url "contacts" %}">Контакты</a></small></li>
+                        <li><small><a href="{% url "about_us" %}">О нас</a></small></li>
+                        <li><small><a href="/sitemap.xml">Карта сайта (XML)</a></small></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="row ">
+                <div class="large-4 column float-right text-right">
+                    <span><small><a href="http://vk.com/public122844007"> (C) NiPoStudio </a></small></span>
+                    <span><small> Powered by Django </small> </span>
+                </div>
+                   
+            </div>
+        </footer>
+
+        <script src="{% static "static/js/vendor/jquery.js" %}"></script>
+        <script src="{% static "static/js/vendor/what-input.js"%}"></script>
+        <script src="{% static "static/js/foundation.min.js"%}"></script>
+        <script src="{% static "static/js/app.js"%}"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="{% static "static/js/slick.min.js"%}"></script>
+         <script type="text/javascript">
+            $(document).on('ready', function() {
+              $(".regular").slick({
+                dots: true,
+                infinite: true,
+                autoplay: true,
+                autoplaySpeed: 1500,
+                slidesToShow: 1,
+                fade: true,
+                slidesToScroll: 1
+              });
+
+            });
+         </script>
+    </body>
+</html>
+
+

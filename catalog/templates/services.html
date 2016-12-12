@@ -1,0 +1,64 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+{% load service_tab %}
+{% block category_main %}
+
+    {% if category %}
+	<div class="row services small-up-2 medium-up-2 large-up-2" >
+		{% for cat in category %}
+            <div class="column link " style="background-image: url('/media/{{ cat.image }}');">
+                <a class="border_red" href="{% url "category" cat.slug %}">
+                    <figcaption class="custom-caption" ><strong>{{ cat.name }}</strong></figcaption>
+                </a>
+            </div>
+	    {% endfor %}
+	</div>
+    {% endif %}
+	{% if services %}
+		<div class="row columns">
+			<h3 class="float-center"> {{ title }} </h3>
+			{% autoescape off %}{{ short_description }}{% endautoescape %}
+			{% autoescape on %}{% endautoescape %}
+		</div>
+		<div class="row columns">
+			<h5> В нашем магазине вы можете заказать: </h5>
+			<table class="hover">
+				<thead>
+					<tr>
+						<th> {{ title }}</th>
+						{% for size in sizes %}
+							<th>{{ size.size }}</th>
+						{% endfor %}
+					</tr>
+				</thead>
+				{% regroup services by material as serv_material %}
+
+				{% for serv in serv_material %}
+                    {% show_material_desc serv.grouper.id %}
+					<tr>
+					<th>
+                        {% if  serv.grouper.description %}<a data-open="modal-{{ serv.grouper.id }}">{{ serv.grouper }}</a>
+                        {% else %}{{ serv.grouper }}
+                        {% endif %}
+                    </th>
+					{% for size in sizes %}
+						<td >
+						{% for item in serv.list %}
+							{% if item.size == size %}
+								<span>{{ item.price }}</span>
+							{% endif %}
+						{% endfor %}
+						</td>
+					{% endfor %}
+					</tr>
+
+				{% endfor %}
+			</table>
+		</div>
+        <div class="row columns">
+			{% autoescape off %}{{ description }}{% endautoescape %}
+        </div>
+	{% endif %}
+
+
+{% endblock %}

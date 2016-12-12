@@ -1,0 +1,41 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+{% block contacts %}
+
+        <div class="row columns">
+            <h2> Наши контакты </h2>
+        </div>
+        <div class="row large-up-2 ">
+            {% regroup cnts by name as cnts_list %}
+            {% for cont in cnts_list %}
+                <div class="column">
+                    <hr/>
+                    <p>{{ cont.grouper }} :</p>
+                    <ul class="no-bullet">
+                        {% for cnt in cont.list %}
+                            <li>{% if cnt.image %}<img src="/media/{{ cnt.image }}" alt="{{ cont.grouper }}" height="20px" width="20px">{% endif %}{{ cnt.contact }} </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row columns">
+            <hr/>
+            <h2> Мы в социальных сетях </h2>
+            {% for soc in social %}
+                <a href="{{ soc.contact }}"><img src="/media/{{ soc.image }}" alt="Фотопечать в соцсетях {{ soc.contact }}"></a>
+            {% endfor %}
+
+        </div>
+        <div class="row columns">
+            <hr/>
+            <ul class="no-bullet menu">
+                <li><a href =""></a> </li>
+
+            </ul>
+        </div>
+        <div class="row columns">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5361.6824525974225!2d35.21424646584642!3d47.78452668600566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dc5eead46f68cb%3A0xfa711ea858067d94!2z0J_RltCy0L3RltGH0L3Qvi3QmtGW0LvRjNGG0LXQstCwINCy0YPQuy4sIDYsINCX0LDQv9C-0YDRltC20LbRjywg0JfQsNC_0L7RgNGW0LfRjNC60LAg0L7QsdC70LDRgdGC0Yw!5e0!3m2!1sru!2sua!4v1463662360078" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+
+{% load staticfiles %}
+{% load head_contacts %}
+{% block header %}
+    <header class="row bg_image_header" >
+            <div class="row" >
+                <div class="large-3 columns left">
+                    <img src="/static/static/img/Logo.png"  alt="Logo image" style="opacity: 0.5; padding: 10px;">
+                </div>
+                <div class="large-9 columns">
+                    <div class="row">
+                        <div class="large-4 large-offset-6 columns">
+                            {% show_header_contacts 1 %}
+                        </div>
+                        <div class="large-2 columns f-color">
+                            {% if user.is_authenticated %}
+                                <!--<p class="f-color"><span>Привет {{ user.username }}</span></p>-->
+                                    <p><span><a class="f-color" href="{% url "logout" %}">Выйти   </a></span>
+                                    {% if user.is_staff %}
+                                        <span><a href="/admin"><i class="fi-widget" style="font-size: 24px;" title="Настройки сайта"></i></a></span>
+                                    {% endif %}
+                                </p>
+                            {# {% else %} #}
+                                <!--<a class="f-color" href="{% url "login" %}">Login</a>/<a class="f-color" href="{% url "register" %}">Register</a>-->
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include "nav_menu.html" %}
+        </header>
+{% endblock %}

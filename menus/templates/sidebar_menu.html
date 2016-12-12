@@ -1,0 +1,34 @@
+{% load staticfiles %}
+{% load sidebar_menu %}
+{% block sidebar_menu %}
+    <div class="large-3 columns sidebar">
+        {% show_sidebar_menu as items %}
+
+        <ul class="vertical dropdown menu" data-dropdown-menu>
+            <li class=" padding-0 sidebar_title"><a href="/"> <h3> Услуги</h3></a> </li>
+            {% for item in items %}
+
+                <li class=""><a href="/sevices/{{ item.id }}/">{{ item.name }}</a>
+                {% show_sidebar_submenu item.id as subitems %}
+                {% if subitems %}
+                    <ul class="menu">
+                    {% for subitem in subitems %}
+                        <li><a href="/sevices/{{ subitem.id }}/">{{ subitem.name }}</a>
+                        {% show_sidebar_submenu subitem.id as subsubitems %}
+                        {% if subsubitems %}
+                            <ul class="menu">
+                            {% for subsubitem in subsubitems %}
+                                <li><a href="/sevices/{{ subsubitem.id }}/">{{ subsubitem.name }}</a></li>
+                            {% endfor %}
+                            </ul></li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+    </div>
+
+
+{% endblock %}

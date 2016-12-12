@@ -1,0 +1,44 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+{% load sidebar_menu %}
+
+{% block category_main %}
+
+
+     <div class="row column">
+         <div class="regular ">
+             {% for item in cats %}
+                        <div class="row column float-left">
+                            <a href="{% url "category" item.slug %}" >
+                                <div class="row">
+                                    <div class="large-5 column">
+                                        <p><img src="/media/{{ item.image }}" alt="{{ item.title }}"></p>
+
+                                    </div>
+                                    <div class="large-7 column">
+                                        {% if cat.shot_description %}
+                                            <p>{{ cat.shot_description }}</p>
+                                        {% else %}
+                                            <p>{% lorem %}</p>
+                                        {% endif %}
+                                    </div>
+                                    <figcaption class="orbit-caption"> {{ item.name }} </figcaption>
+                                </div>
+
+                            </a>
+                        </div>
+
+             {% endfor %}
+         </div>
+     </div>
+     <div class="row services small-up-2 medium-up-2 large-up-2" >
+		{% for cat in cats %}
+            <div class="column link " style="background-image: url('/media/{{ cat.image }}');">
+                <a class="border_red" href="{% url "category" cat.slug %}">
+                    <figcaption class="custom-caption" ><strong>{{ cat.name }}</strong></figcaption>
+                </a>
+            </div>
+	    {% endfor %}
+	</div>
+
+{% endblock %}
